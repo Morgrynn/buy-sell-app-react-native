@@ -2,7 +2,6 @@ import React from 'react';
 import { View, Text, Button, StyleSheet } from 'react-native';
 
 const ProductDetailScreen = ({ navigation }) => {
-  console.log(navigation);
   return (
     <View style={styles.screen}>
       <Text>Product Details Screen</Text>

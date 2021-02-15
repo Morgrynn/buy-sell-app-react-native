@@ -11,7 +11,11 @@ const ProductNavigator = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name='CategoriesScreen' component={CategoriesScreen} />
+        <Stack.Screen
+          name='CategoriesScreen'
+          component={CategoriesScreen}
+          options={{ title: 'Product Categories' }}
+        />
         <Stack.Screen
           name='CategoryProductsScreen'
           component={CategoryProductsScreen}
