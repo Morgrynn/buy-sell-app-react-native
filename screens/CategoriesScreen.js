@@ -14,7 +14,11 @@ const CategoriesScreen = ({ navigation }) => {
     return (
       <TouchableOpacity
         style={styles.gridItem}
-        onPress={() => navigation.navigate('CategoryProductsScreen')}>
+        onPress={() =>
+          navigation.navigate('CategoryProductsScreen', {
+            categoryId: itemData.item.id,
+          })
+        }>
         <View>
           <Text>{itemData.item.title}</Text>
         </View>
@@ -25,7 +29,6 @@ const CategoriesScreen = ({ navigation }) => {
     <FlatList data={CATEGORIES} renderItem={renderGridItem} numColumns={2} />
   );
 };
-
 
 const styles = StyleSheet.create({
   screen: {
