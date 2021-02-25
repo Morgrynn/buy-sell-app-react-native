@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import ProductNavigator from './navigation/ProductNavigator';
+import DrawerNavigator from './navigation/ProductNavigator';
+import { enableScreens } from 'react-native-screens';
+enableScreens();
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <ProductNavigator />
+      <DrawerNavigator />
     </View>
   );
 }
