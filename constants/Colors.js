@@ -1,5 +1,5 @@
 export default {
-  primaryColor: '#8436e2',
+  primaryColor: '#f2448d',
   accentColor: '#ff6f00',
-  iHeader: '#4A148C',
+  iHeader: '#f2448d',
 };
