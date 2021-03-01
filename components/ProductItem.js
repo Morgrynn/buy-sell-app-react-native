@@ -1,75 +1,65 @@
 import React from 'react';
-import {
-  View,
-  Text,
-  StyleSheet,
-  TouchableOpacity,
-  ImageBackground,
-} from 'react-native';
+import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 
 const ProductItem = (props) => {
   return (
-    <View style={styles.productItem}>
-      <TouchableOpacity onPress={props.onSelectItem}>
-        <View>
-          <View style={{ ...styles.productRow, ...styles.productHeader }}>
-            <ImageBackground
-              source={{ uri: props.image }}
-              style={styles.bgImage}>
-              <View style={styles.titleContainer}>
-                <Text style={styles.title} numberOfLines={1}>
-                  {props.title}
-                </Text>
-              </View>
-            </ImageBackground>
-          </View>
-          <View style={{ ...styles.productRow, ...styles.productDetails }}>
-            <Text>{props.duration}m</Text>
-            <Text>{props.complexity.toUpperCase()}</Text>
-            <Text>{props.affordability.toUpperCase()}</Text>
-          </View>
+    <TouchableOpacity onPress={props.onSelect}>
+      <View style={styles.product}>
+        <View style={styles.imgContainer}>
+          <Image style={styles.image} source={{ uri: props.image }} />
         </View>
-      </TouchableOpacity>
-    </View>
+        <View style={styles.details}>
+          <Text style={styles.title}>{props.title}</Text>
+          <Text style={styles.price}>€{props.price}</Text>
+        </View>
+        <View style={styles.btnContainer}>{props.children}</View>
+      </View>
+    </TouchableOpacity>
   );
 };
 
 const styles = StyleSheet.create({
-  productItem: {
-    height: 200,
-    width: '100%',
-    backgroundColor: '#f5f5f5',
+  product: {
+    shadowColor: 'black',
+    shadowOpacity: 0.26,
+    shadowOffset: { width: 0, height: 2 },
+    shadowRadius: 8,
+    elevation: 5,
     borderRadius: 10,
-    overflow: 'hidden',
-    marginVertical: 10,
+    backgroundColor: 'white',
+    height: 300,
+    margin: 20,
   },
-  bgImage: {
+  imgContainer: {
+    width: '100%',
+    height: '60%',
+    borderTopRightRadius: 10,
+    borderTopLeftRadius: 10,
+    overflow: 'hidden',
+  },
+  image: {
     width: '100%',
     height: '100%',
-    justifyContent: 'flex-end',
   },
-  productRow: {
-    flexDirection: 'row',
-  },
-  productHeader: {
-    height: '85%',
-  },
-  productDetails: {
-    paddingHorizontal: 10,
-    justifyContent: 'space-between',
+  details: {
     alignItems: 'center',
-    height: '15%',
-  },
-
-  titleContainer: {
-    backgroundColor: 'rgba(0,0,0,0.6)',
-    paddingVertical: 5,
-    paddingHorizontal: 12,
+    height: '17%',
+    padding: 10,
   },
   title: {
-    fontSize: 20,
-    color: 'white',
-    textAlign: 'center',
+    fontSize: 18,
+    marginVertical: 4,
+  },
+  price: {
+    fontSize: 14,
+    color: '#888',
+  },
+  btnContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    height: '23%',
+    paddingHorizontal: 20,
   },
 });
 

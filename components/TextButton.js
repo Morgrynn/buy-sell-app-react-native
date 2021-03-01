@@ -11,11 +11,13 @@ const TextButton = ({ title, style, onPress }) => {
 
 const styles = StyleSheet.create({
   container: {
-    width: '100%',
+    // width: '100%',
     alignItems: 'center',
     justifyContent: 'center',
     padding: 20,
     borderRadius: 8,
+    borderWidth: 1,
+    borderColor: 'purple',
   },
   text: {
     color: 'purple',
