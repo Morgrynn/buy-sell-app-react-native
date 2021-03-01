@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import Heading from '../../components/Heading';
 import Input from '../../components/Input';
 import FilledButton from '../../components/FilledButton';
@@ -48,13 +48,22 @@ const LoginScreen = ({ navigation }) => {
           }
         }}
       />
-      <TextButton
-        title={'Create Account'}
-        style={styles.btn}
-        onPress={() => {
-          navigation.navigate('Registration');
-        }}
-      />
+      <View style={styles.btnContainer}>
+        <TextButton
+          title={'Go Back'}
+          style={styles.btn1}
+          onPress={() => {
+            navigation.goBack();
+          }}
+        />
+        <TextButton
+          title={'Create Account'}
+          style={styles.btn2}
+          onPress={() => {
+            navigation.navigate('Registration');
+          }}
+        />
+      </View>
       <Loading loading={loading} />
     </AuthContainer>
   );
@@ -67,8 +76,20 @@ const styles = StyleSheet.create({
   input: {
     marginVertical: 8,
   },
-  btn: {
-    marginVertical: 32,
+  btnContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    height: '23%',
+    paddingHorizontal: 20,
+  },
+  btn1: {
+    marginVertical: 22,
+    marginRight: 60,
+  },
+  btn2: {
+    marginVertical: 22,
+    marginLeft: 60,
   },
 });
 
